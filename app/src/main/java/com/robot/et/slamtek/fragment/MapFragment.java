@@ -1,6 +1,7 @@
 package com.robot.et.slamtek.fragment;
 
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,10 +11,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
 
-import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -33,12 +31,9 @@ import com.slamtec.slamware.robot.Map;
 import com.slamtec.slamware.robot.MapKind;
 import com.slamtec.slamware.robot.MapType;
 import com.slamtec.slamware.robot.Pose;
-import android.graphics.RectF;
+
 import java.util.Timer;
 import java.util.TimerTask;
-
-import android.view.ViewGroup;
-import static android.graphics.Color.BLUE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -99,24 +94,20 @@ public class MapFragment extends BaseFragment {
         if (null == slamwareCorePlatform) {
             Toast.makeText(getActivity(), "连接异常", Toast.LENGTH_LONG).show();
         } else {
+
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
 
                 @Override
                 public void run() {
-//                    Message msg = new Message();
-//                    msg.what = UPATE_MAP_SIGN;
-//                    handler.sendMessage(msg);
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Message msg = new Message();
-                            msg.what = UPATE_MAP_SIGN;
-                            handler.sendMessage(msg);
-                        }
-                    }).start();
+                    Message msg = new Message();
+                    msg.what = UPATE_MAP_SIGN;
+                    handler.sendMessage(msg);
                 }
             }, 1000, 2000);
+
+
+
         }
     }
 

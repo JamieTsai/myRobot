@@ -1,180 +1,221 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="0dip"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:background="#7f7f7f">
-
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true" />
-
-        <TextView
-            android:id="@+id/battery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="16dp"
-            android:text="Battery"
-            android:textColor="#00ff00" />
-
-        <TextView
-            android:id="@+id/quality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/battery"
-            android:text="quality"
-            android:textColor="#00ff00" />
-
-        <TextView
-            android:id="@+id/charing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/quality"
-            android:text="charing"
-            android:textColor="#00ff00" />
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/charing"
-            android:text=""
-            android:textColor="#00ff00" />
-    </RelativeLayout>
-
 
     <android.support.v7.widget.CardView
         android:layout_width="0dip"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:cardUseCompatPadding="false"
+        app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="#7f7f7f"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#7f7f7f"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/battery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:text="Battery"
+                android:textColor="#00ff00" />
+
+            <TextView
+                android:id="@+id/quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/battery"
+                android:text="quality"
+                android:textColor="#00ff00" />
+
+            <TextView
+                android:id="@+id/charing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/quality"
+                android:text="charing"
+                android:textColor="#00ff00" />
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/charing"
+                android:text=""
+                android:textColor="#00ff00" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dip"
         android:layout_height="match_parent"
-       >
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:cardUseCompatPadding="false"
+        app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
 
-        <Button
-            android:id="@+id/right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/backward"
-            android:layout_alignParentRight="true"
-            android:text="→" />
+            <Button
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/backward"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:background="#fff"
+                android:text="→" />
 
-        <Button
-            android:id="@+id/backward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/forward"
-            android:layout_alignParentBottom="true"
-            android:text="↓" />
+            <Button
+                android:id="@+id/backward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/forward"
+                android:background="#fff"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:text="↓" />
 
-        <Button
-            android:id="@+id/left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignTop="@+id/right"
-            android:text="←" />
+            <Button
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignTop="@+id/right"
+                android:layout_marginLeft="5dp"
+                android:background="#fff"
+                android:text="←" />
 
-        <Button
-            android:id="@+id/forward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/right"
-            android:layout_centerHorizontal="true"
-            android:text="↑" />
+            <Button
+                android:id="@+id/forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/right"
+                android:layout_centerHorizontal="true"
+                android:background="#fff"
+                android:layout_marginTop="5dp"
+                android:text="↑" />
 
-        <Button
-            android:id="@+id/robotLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="#fff"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:text="定个位" />
+            <Button
+                android:id="@+id/robotLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="#fff"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="定个位" />
 
-        <Button
-            android:id="@+id/test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="Test" />
+            <Button
+                android:id="@+id/stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="#fff"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="stop" />
 
-        <EditText
-            android:id="@+id/angle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/robotLocation"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/robotLocation"
-            android:layout_below="@+id/robotLocation"
-            android:hint="位置"
-            android:ems="10" />
+            <EditText
+                android:id="@+id/angle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/robotLocation"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/robotLocation"
+                android:layout_below="@+id/robotLocation"
+                android:hint="位置"
+                android:ems="10" />
 
-        <Button
-            android:id="@+id/execTurn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/test"
-            android:text="提交" />
+            <Button
+                android:id="@+id/execTurn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/stop"
+                android:background="#fff"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="提交" />
 
-        <EditText
-            android:id="@+id/goalx"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/angle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/angle"
-            android:layout_below="@+id/execTurn"
-            android:ems="10"
-            android:hint="X值"
-            android:inputType="number" />
+            <EditText
+                android:id="@+id/goalx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/angle"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/angle"
+                android:layout_below="@+id/execTurn"
+                android:ems="10"
+                android:hint="X值"
+                android:inputType="number" />
 
-        <Button
-            android:id="@+id/moveGoal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/forward"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:text="moveGoal" />
 
-        <EditText
-            android:id="@+id/goaly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/goalx"
-            android:layout_alignBottom="@+id/goalx"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/goalx"
-            android:ems="10"
-            android:hint="Y值"
-            android:inputType="number" />
+            <Button
+                android:id="@+id/moveGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/forward"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:background="#fff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentStart="true"
+                android:text="moveGoal" />
 
-    </RelativeLayout>
-</android.support.v7.widget.CardView>
+            <EditText
+                android:id="@+id/goaly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/goalx"
+                android:layout_alignBottom="@+id/goalx"
+                android:layout_toRightOf="@+id/goalx"
+                android:ems="10"
+                android:hint="Y值"
+                android:inputType="number" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

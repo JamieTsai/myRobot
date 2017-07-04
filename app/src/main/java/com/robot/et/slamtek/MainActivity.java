@@ -11,6 +11,7 @@ import com.slamtec.slamware.robot.LaserPoint;
 import com.slamtec.slamware.robot.LaserScan;
 import com.slamtec.slamware.robot.Location;
 import com.slamtec.slamware.robot.Pose;
+import com.slamtec.slamware.discovery.DeviceManager;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -19,6 +20,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -31,6 +33,7 @@ import com.slamtec.slamware.action.IAction;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTouch;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -43,7 +46,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.left) Button left;
     @BindView(R.id.right) Button right;
     @BindView(R.id.robotLocation) Button robotlocation;
-    @BindView(R.id.test) Button test;
+    @BindView(R.id.stop) Button stop;
     @BindView(R.id.execTurn) Button execTurn;
     @BindView(R.id.moveGoal) Button moveGoal;
     @BindView(R.id.battery) TextView battery;
@@ -75,6 +78,85 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         initRobotState();
         initMapFragment();
+
+//右转
+        right.setOnTouchListener(new Button.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+              int   ation=event.getAction();
+                switch (ation){
+                    case MotionEvent.ACTION_DOWN:
+                        SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_TURN_RIGHT);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+
+//左转
+        left.setOnTouchListener(new Button.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int   ation=event.getAction();
+                switch (ation){
+                    case MotionEvent.ACTION_DOWN:
+                        SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_TURN_LEFT);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+//前进
+        forward.setOnTouchListener(new Button.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int   ation=event.getAction();
+                switch (ation){
+                    case MotionEvent.ACTION_DOWN:
+                        SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_FORWARD);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+//后退
+        backward.setOnTouchListener(new Button.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int   ation=event.getAction();
+                switch (ation){
+                    case MotionEvent.ACTION_DOWN:
+                        SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_BACKWARD);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+
+
+
+
+
     }
 
     private void initRobotState(){
@@ -159,30 +241,33 @@ public class MainActivity extends BaseActivity {
             Toast.makeText(MainActivity.this,"请先输入X和Y坐标值",Toast.LENGTH_SHORT).show();
         }
     }
-    @OnClick({R.id.forward,R.id.backward,R.id.left,R.id.right})
-    public void execForward(View view){
-        switch (view.getId()) {
-            case R.id.forward:
-                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_FORWARD);
-                break;
-            case R.id.backward:
-                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_BACKWARD);
-                break;
-            case R.id.left:
-                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_TURN_LEFT);
-                break;
-            case R.id.right:
-                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_TURN_RIGHT);
-                break;
-            default:
-                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_CANCEL);
-                break;
-        }
-    }
+//    @OnClick({R.id.forward,R.id.backward,R.id.left})
+//    public void execForward(View view){
+//        switch (view.getId()) {
+//            case R.id.forward:
+//                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_FORWARD);
+//                break;
+//            case R.id.backward:
+//                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_BACKWARD);
+//                break;
+//            case R.id.left:
+//                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_TURN_LEFT);
+//                break; 
+////            case R.id.right:
+////                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_TURN_RIGHT);
+////                break;
+//            default:
+//                SlamtecLoader.getInstance().execBasicMove(MOVEDIRECTION_CANCEL);
+//                break;
+//        }
+//    }
 
-    @OnClick(R.id.test)
+
+
+    @OnClick(R.id.stop)
     public void execTest() {
 
+        slamwareCorePlatform.getCurrentAction().cancel();
 
         Log.e("test", "=====================execTest=====================");
         Log.e("RobotStatus", "===================RobotStatus==================");
